@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sipariş Detayları</title>
+</head>
+<body>
+    <h2>Sipariş Detayları</h2>
+    <p>Sipariş ID: <span th:text="${order.id}"></span></p>
+    <p>Durum: <span th:text="${order.status}"></span></p>
+    <p>Toplam: <span th:text="${order.total}"></span></p>
+    <h3>Ürünler</h3>
+    <ul>
+        <th:block th:each="item : ${order.orderItems}">
+            <li>
+                Ürün: <span th:text="${item.product.name}"></span> - 
+                Miktar: <span th:text="${item.quantity}"></span> - 
+                Fiyat: <span th:text="${item.price}"></span>
+            </li>
+        </th:block>
+    </ul>
+    <form action="/orders" method="post" th:action="@{'/orders/' + ${order.id}}">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sil">
+    </form>
+</body>
+</html>

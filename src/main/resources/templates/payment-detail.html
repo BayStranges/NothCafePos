@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ödeme Detayları</title>
+</head>
+<body>
+    <h2>Ödeme Detayları</h2>
+    <p>Ödeme ID: <span th:text="${payment.id}"></span></p>
+    <p>Sipariş ID: <span th:text="${payment.order.id}"></span></p>
+    <p>Miktar: <span th:text="${payment.amount}"></span></p>
+    <p>Yöntem: <span th:text="${payment.paymentMethod}"></span></p>
+    <p>Tarih: <span th:text="${payment.paymentDate}"></span></p>
+    <form action="/payments" method="post" th:action="@{'/payments/' + ${payment.id}}">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sil">
+    </form>
+</body>
+</html>

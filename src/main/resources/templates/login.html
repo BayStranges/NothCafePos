@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giriş Yap</title>
+</head>
+<body>
+    <h2>Giriş Yap</h2>
+    <form action="/login" method="post"> <!-- Burada method="post" olduğundan emin olun -->
+        <label for="username">Kullanıcı Adı:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Şifre:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Giriş Yap">
+    </form>
+    <p style="color:red;">${error}</p>
+</body>
+</html>

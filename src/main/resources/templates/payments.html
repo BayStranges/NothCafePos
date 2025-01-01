@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ödemeler</title>
+</head>
+
+<body>
+    <h2>Ödemeler</h2>
+    <ul>
+        <th:block th:each="payment : ${payments}">
+            <li>
+                <a th:href="@{'/payments/' + ${payment.id}}" th:text="'Ödeme #' + ${payment.id}"></a>
+                - Miktar: <span th:text="${payment.amount}"></span>
+                - Yöntem: <span th:text="${payment.paymentMethod}"></span>
+            </li>
+        </th:block>
+    </ul>
+    <h3>Yeni Ödeme Oluştur</h3>
+    <form action="/payments" method="post">
+        <label for="orderId">Sipariş ID:</label><br>
+        <input type="text" id="orderId" name="orderId"><br>
+        <label for="amount">Miktar:</label><br>
+        <input type="text" id="amount" name="amount"><br>
+        <label for="paymentMethod">Ödeme Yöntemi:</label><br>
+        <input type="text" id="paymentMethod" name="paymentMethod"><br><br>
+        <input type="submit" value="Ödeme Yap">
+    </form>
+</body>
+
+</html>

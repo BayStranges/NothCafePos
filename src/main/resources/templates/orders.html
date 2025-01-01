@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Siparişler</title>
+</head>
+<body>
+    <h2>Siparişler</h2>
+    <ul>
+        <th:block th:each="order : ${orders}">
+            <li>
+                <a th:href="@{'/orders/' + ${order.id}}" th:text="'Sipariş #' + ${order.id}"></a>
+                - Durum: <span th:text="${order.status}"></span>
+                - Toplam: <span th:text="${order.total}"></span>
+            </li>
+        </th:block>
+    </ul>
+    <h3>Yeni Sipariş Oluştur</h3>
+    <form action="/orders" method="post">
+        <label for="productIds">Ürün ID'leri (virgülle ayırın):</label><br>
+        <input type="text" id="productIds" name="productIds"><br>
+        <label for="quantities">Miktarlar (virgülle ayırın):</label><br>
+        <input type="text" id="quantities" name="quantities"><br><br>
+        <input type="submit" value="Oluştur">
+    </form>
+</body>
+</html>

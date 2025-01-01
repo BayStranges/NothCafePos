@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ürünler</title>
+</head>
+
+<body>
+    <h2>Ürünler</h2>
+    <ul>
+        <th:block th:each="product : ${products}">
+            <li>
+                <a th:href="@{'/products/' + ${product.id}}" th:text="${product.name} + ' - ' + ${product.price}"></a>
+            </li>
+        </th:block>
+    </ul>
+    <h3>Yeni Ürün Ekle</h3>
+    <form action="/products" method="post">
+        <label for="name">Ürün Adı:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="price">Fiyat:</label><br>
+        <input type="text" id="price" name="price"><br><br>
+        <input type="submit" value="Ekle">
+    </form>
+</body>
+
+</html>

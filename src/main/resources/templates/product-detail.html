@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ürün Detayları</title>
+</head>
+<body>
+    <h2>Ürün Detayları</h2>
+    <p>Ad: <span th:text="${product.name}"></span></p>
+    <p>Fiyat: <span th:text="${product.price}"></span></p>
+    <form action="/products" method="post" th:action="@{'/products/' + ${product.id}}"> 
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sil">
+    </form>
+</body>
+</html>
